@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Friction",
+  "version": "1.0.0",
+  "description": "Add intentional friction to break mindless browsing habits",
+  "permissions": [
+    "storage",
+    "webRequest",
+    "webNavigation",
+    "tabs",
+    "alarms"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "scripts/background.js"
+  },
+  "action": {
+    "default_popup": "pages/popup.html",
+    "default_icon": {
+      "16": "assets/icon16.png",
+      "48": "assets/icon48.png",
+      "128": "assets/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "assets/icon16.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["pages/interrupt.html"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
