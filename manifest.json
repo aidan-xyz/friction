@@ -5,7 +5,6 @@
   "description": "Add intentional friction to break mindless browsing habits",
   "permissions": [
     "storage",
-    "webRequest",
     "webNavigation",
     "tabs",
     "alarms"
