@@ -37,4 +37,4 @@ This privacy policy may be updated to reflect changes in the extension. Continue
 CONTACT
 For questions about this privacy policy, contact: [your email or LinkedIn]
 
-This extension is open source and available at: [GitHub link if you create one]
+This extension is open source and available at: [https://github.com/aidan-xyz/friction]
