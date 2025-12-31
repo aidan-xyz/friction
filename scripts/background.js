@@ -71,34 +71,7 @@ function extractDomain(url) {
   }
 }
 
-// Listen for web requests and block/redirect before they complete
-chrome.webRequest.onBeforeRequest.addListener(
-  (details) => {
-    const url = details.url;
-    const tabId = details.tabId;
-    
-    // Don't intercept extension pages, chrome URLs, or sub-frames
-    if (url.startsWith('chrome://') || 
-        url.startsWith('chrome-extension://') ||
-        details.type !== 'main_frame') {
-      return { cancel: false };
-    }
-    
-    // Synchronous check - we need to return immediately
-    return checkAndBlock(url, tabId);
-  },
-  { urls: ["<all_urls>"] },
-  ["blocking"]
-);
-
-function checkAndBlock(url, tabId) {
-  // We'll use a synchronous approach by checking storage
-  // Note: This is a limitation of webRequest API - we can't use async storage easily
-  // So we'll use a different approach: let the navigation happen, then immediately redirect
-  return { cancel: false };
-}
-
-// Better approach: Use onCommitted to catch after navigation starts but before page loads
+// Use onCommitted to catch after navigation starts but before page loads
 chrome.webNavigation.onCommitted.addListener((details) => {
   // Only intercept main frame navigations (not iframes)
   if (details.frameId !== 0) return;
